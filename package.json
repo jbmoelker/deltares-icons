@@ -1,0 +1,22 @@
+{
+  "name": "deltares-icons",
+  "version": "1.0.0",
+  "description": "Set of Deltares icons as svg, svg sprite and font files.",
+  "scripts": {
+    "prebuild": "rimraf dist && mkdirp dist/font/",
+    "build": "npm run build:font && npm run build:sprite && npm run build:svg",
+    "build:font": "icon-font-generator src/*.svg --out dist/font/",
+    "build:sprite": "svg-sprite --symbol --symbol-dest=dist/sprite/ --symbol-sprite=icons.svg src/*.svg",
+    "build:svg": "svgo --folder src/ --output dist/svg/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jasper Moelker <jasper@voorhoede.nl> (https://voorhoede.nl/)",
+  "license": "MIT",
+  "devDependencies": {
+    "icon-font-generator": "^2.1.10",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.3",
+    "svg-sprite": "^1.5.0",
+    "svgo": "^1.3.0"
+  }
+}
